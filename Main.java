@@ -51,6 +51,7 @@ public class Main {
 		 * 
 		 * */
 		
+		
 		ArrayList<String> flatFleet = new ArrayList<String>();
 		String shipID[] = {"C", "B", "D", "S", "P"};
 		int shipSize[] = {5, 4, 3, 3, 2};
@@ -69,6 +70,11 @@ public class Main {
 			for(int j = 0; j < 10; j++) {	// Check each column.
 				flatFleet.add(fleetArray[i][j]);
 			}
+		}
+		
+		// Debugging
+		for (String string : flatFleet) {
+			System.out.print(string);
 		}
 		
 		
@@ -108,14 +114,101 @@ public class Main {
 			}
 		}
 
-		
 
-		// Debugging
-		for (String string : flatFleet) {
-			System.out.print(string);
+		
+		// Battleship
+		for(int i = 0; i < 100; i++) {
+			if(flatFleet.get(i) == "B") {
+				if(flatFleet.get(i+1) == "B") {	// Check orientation of ship.
+				
+					for(int j = 0; j < 4; j++) {
+						if(flatFleet.get(i+j).equals("B")) {
+							runningBattleshipCount++;
+						}
+					}
+					break;
+				} else {
+					for(int j = 0; j < 4; j++) {
+						if(flatFleet.get(i+(j*10)).equals("B")) {
+							runningBattleshipCount++;
+						}
+					}
+					break;
+				}
+			}
 		}
 		
-		if(runningCarrierCount == 5) {
+
+		// Destroyer
+		for(int i = 0; i < 100; i++) {
+			if(flatFleet.get(i) == "D") {
+				if(flatFleet.get(i+1) == "D") {	// Check orientation of ship.
+				
+					for(int j = 0; j < 3; j++) {
+						if(flatFleet.get(i+j).equals("D")) {
+							runningDestroyerCount++;
+						}
+					}
+					break;
+				} else {
+					for(int j = 0; j < 3; j++) {
+						if(flatFleet.get(i+(j*10)).equals("D")) {
+							runningDestroyerCount++;
+						}
+					}
+					break;
+				}
+			}
+		}
+
+		// Submarine
+		for(int i = 0; i < 100; i++) {
+			if(flatFleet.get(i) == "S") {
+				if(flatFleet.get(i+1) == "S") {	// Check orientation of ship.
+				
+					for(int j = 0; j < 3; j++) {
+						if(flatFleet.get(i+j).equals("S")) {
+							runningSubmarineCount++;
+						}
+					}
+					break;
+				} else {
+					for(int j = 0; j < 3; j++) {
+						if(flatFleet.get(i+(j*10)).equals("S")) {
+							runningSubmarineCount++;
+						}
+					}
+					break;
+				}
+			}
+		}
+		
+		
+		// Patrol
+		for(int i = 0; i < 100; i++) {
+			if(flatFleet.get(i) == "P") {
+				if(flatFleet.get(i+1) == "P") {	// Check orientation of ship.
+				
+					for(int j = 0; j < 3; j++) {
+						if(flatFleet.get(i+j).equals("P")) {
+							runningPatrolCount++;
+						}
+					}
+					break;
+				} else {
+					for(int j = 0; j < 3; j++) {
+						if(flatFleet.get(i+(j*10)).equals("P")) {
+							runningPatrolCount++;
+						}
+					}
+					break;
+				}
+			}
+		}
+
+		
+		
+		if(runningCarrierCount == 5 && runningBattleshipCount == 4 && runningDestroyerCount == 3 && runningSubmarineCount == 3 && runningPatrolCount == 2) {
 			return true;
 		}
 		
@@ -125,12 +218,12 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		String player1FleetArray[][] = {{"0","0","0","0","0","0","0","0","0","0"},
-										{"0","C","0","P","P","0","0","0","0","0"},
-										{"0","C","0","0","0","0","0","0","0","0"},
-										{"0","C","0","0","B","B","B","B","0","0"},
-										{"0","C","0","0","0","0","0","0","0","0"},
-										{"0","C","0","0","0","0","0","0","0","0"},
+		String player1FleetArray[][] = {{"0","C","C","C","C","C","0","0","0","0"},
+										{"0","0","0","P","P","0","0","0","0","0"},
+										{"0","0","0","0","0","0","0","0","0","0"},
+										{"0","0","0","0","B","B","B","B","0","0"},
+										{"0","0","0","0","0","0","0","0","0","0"},
+										{"0","0","0","0","0","0","0","0","0","0"},
 										{"0","0","0","0","D","0","S","0","0","0"},
 										{"0","0","0","0","D","0","S","0","0","0"},
 										{"0","0","0","0","D","0","S","0","0","0"},

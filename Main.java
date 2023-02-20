@@ -34,7 +34,7 @@ public class Main {
 		 * Pseudocode:
 		 * Flatten 2D array to 1D array.
 		 * 
-		 * Check there are 17 non-zeros. If not, return false. (Just a brief pre-validation)
+		 * Check there are 17 non-zeros. If not, return false. (A brief, but necessary pre-validation)
 		 * Cycle through each element.
 		 * 
 		 * When a letter is hit, check the next element to see if it matches.
@@ -44,7 +44,7 @@ public class Main {
 		 * If vertical, check if there are that many sequential letters with 10 space in between them.
 		 * 
 		 * This actually inherently takes care of placing boats in an L-shape.
-		 * The reason is because when a boat is discoverd (its letter is found),
+		 * The reason is because when a boat is discovered (its letter is found),
 		 * The algorithm is expecting to find 5, 4, 3, or 2 spaces.
 		 * And because of the 17 count check before the algorithm starts,
 		 * the ships MUST be in this configuration.

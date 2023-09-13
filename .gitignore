@@ -1,5 +1,4 @@
-.classpath
-.project
-.settings/
 Main.class
-
+out/
+.idea
+Battleship-Fleet-Configuration-Validation-Algorithm.iml

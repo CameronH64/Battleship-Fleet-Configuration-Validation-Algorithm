@@ -69,12 +69,20 @@ public class Main {
 				flatFleet.add(fleetArray[i][j]);
 			}
 		}
-		
-		
-		
+
+
+
 		// Debugging; print out the whole 1D array.
+		int spacer = 1;
+
 		for (String string : flatFleet) {
 			System.out.print(string);
+
+			if (spacer % 10 == 0)
+				System.out.print(" ");
+
+			spacer++;
+
 		}
 		
 		

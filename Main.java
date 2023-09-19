@@ -103,8 +103,8 @@ public class Main {
 		
 		// Carrier
 		for(int i = 0; i < 100; i++) {				// Cycle through 1D array.
-			if(flatFleet.get(i) == "C") {			// ... Until it hits a carrier ship (represented by a C).
-				if(flatFleet.get(i+1) == "C") {		// Check if orientation is vertical.
+			if(flatFleet.get(i).equals("C")) {			// ... Until it hits a carrier ship (represented by a C).
+				if(flatFleet.get(i+1).equals("C")) {		// Check if orientation is vertical.
 				
 					for(int j = 0; j < 5; j++) {					// If vertical, check the C's in the downward direction.
 						if(flatFleet.get(i+j).equals("C")) {
@@ -124,12 +124,11 @@ public class Main {
 			}
 		}
 
-
 		
 		// Battleship
 		for(int i = 0; i < 100; i++) {
-			if(flatFleet.get(i) == "B") {
-				if(flatFleet.get(i+1) == "B") {	// Check orientation of ship.
+			if(flatFleet.get(i).equals("B")) {
+				if(flatFleet.get(i+1).equals("B")) {	// Check orientation of ship.
 				
 					for(int j = 0; j < 4; j++) {
 						if(flatFleet.get(i+j).equals("B")) {
@@ -152,8 +151,8 @@ public class Main {
 
 		// Destroyer
 		for(int i = 0; i < 100; i++) {
-			if(flatFleet.get(i) == "D") {
-				if(flatFleet.get(i+1) == "D") {	// Check orientation of ship.
+			if(flatFleet.get(i).equals("D")) {
+				if(flatFleet.get(i+1).equals("D")) {	// Check orientation of ship.
 				
 					for(int j = 0; j < 3; j++) {
 						if(flatFleet.get(i+j).equals("D")) {
@@ -175,8 +174,8 @@ public class Main {
 
 		// Submarine
 		for(int i = 0; i < 100; i++) {
-			if(flatFleet.get(i) == "S") {
-				if(flatFleet.get(i+1) == "S") {	// Check orientation of ship.
+			if(flatFleet.get(i).equals("S")) {
+				if(flatFleet.get(i+1).equals("S")) {	// Check orientation of ship.
 				
 					for(int j = 0; j < 3; j++) {
 						if(flatFleet.get(i+j).equals("S")) {
@@ -199,8 +198,8 @@ public class Main {
 		
 		// Patrol
 		for(int i = 0; i < 100; i++) {
-			if(flatFleet.get(i) == "P") {
-				if(flatFleet.get(i+1) == "P") {	// Check orientation of ship.
+			if(flatFleet.get(i).equals("P")) {
+				if(flatFleet.get(i+1).equals("P")) {	// Check orientation of ship.
 				
 					for(int j = 0; j < 3; j++) {
 						if(flatFleet.get(i+j).equals("P")) {
@@ -225,17 +224,13 @@ public class Main {
 		// This is why the check for 17 spaces is not sufficient.
 		// For example, a carrier could be 6 spaces and a battleship could be 3.
 		// That method alone would fail this test.
-		if(runningCarrierCount == 5 && runningBattleshipCount == 4 && runningDestroyerCount == 3 && runningSubmarineCount == 3 && runningPatrolCount == 2) {
-			return true;
-		}
-		
-		return false;
-	
-	}
+        return runningCarrierCount == 5 && runningBattleshipCount == 4 && runningDestroyerCount == 3 && runningSubmarineCount == 3 && runningPatrolCount == 2;
+
+    }
 
 	public static void main(String[] args) {
 
-		String player1FleetArray[][] = {{"0","C","C","C","C","C","0","0","0","0"},
+		String[][] player1FleetArray = {{"0","C","C","C","C","C","0","0","0","0"},
 										{"0","0","0","P","P","0","0","0","0","0"},
 										{"0","0","0","0","0","0","0","0","0","0"},
 										{"0","0","0","0","B","B","B","B","0","0"},
